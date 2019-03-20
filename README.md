@@ -69,6 +69,8 @@ The following environment variables are supported:
   Blocking labels take precedence, so if a pull request has both labels
   `wip` and `documentation-updated`, it will not be merged.
 
+- `MERGE_METHOD`: Merge method to use. Possible values are `merge`, `squash` or `rebase`. Default is `merge`.
+
 You can configure the environment variables in the workflow file like this:
 
 ```
@@ -77,6 +79,7 @@ action "automerge" {
   secrets = ["GITHUB_TOKEN"]
   env = {
     LABELS = "!wip,!work in progress,documentation-updated"
+    MERGE_METHOD = "merge"
   }
 }
 ```
